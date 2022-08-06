@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'reactUser',
-  password: '1234567',
+  user: 'root',
+  password: '',
   database: 'reactmysql'
 });
 
@@ -29,9 +29,9 @@ app.get('/api/news', (req, res) => {
 
 app.post('/api/insert', function(req, res) {
   var sql = "INSERT "
-          + "INTO news(title,description,content) "
+          + "INTO news(name,description,content) "
           + "VALUES('"
-          +   req.body.title+ "','" 
+          +   req.body.name+ "','" 
           +   req.body.description + "','" 
           +   req.body.content+"')";
   connection.query(sql, function (err, results) {
